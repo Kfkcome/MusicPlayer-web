@@ -1,5 +1,6 @@
 package com.music.interceptor;
 
+import com.music.exception.loginErrorException;
 import com.music.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
 import org.springframework.stereotype.Component;
@@ -16,8 +17,9 @@ public class LoginInterceptor implements HandlerInterceptor {
         String token = request.getHeader("token");
         //判断token是否为空，如果为空也代表未登录 提醒重新登录（401）
         if(!StringUtils.hasText(token)){
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-            return false;
+
+            throw new loginErrorException("未登录请登录账号");
+            //return false;
         }
         //解析token看看是否成功
         try {
@@ -25,11 +27,11 @@ public class LoginInterceptor implements HandlerInterceptor {
             String subject = claims.getSubject();
             System.out.println(subject);
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             //如果解析过程中没有出现异常说明是登录状态
             //如果出现了异常，说明未登录，提醒重新登录（401）
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-            return false;
+            throw new loginErrorException("登录已超时，请重新登录");
+            //return false;
         }
         return true;
     }
