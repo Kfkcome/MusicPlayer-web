@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @ResponseBody
-@RequestMapping("/test")
+@RequestMapping("/user")
 public class TestMysql {
     @Autowired
     private TestMysqlService testMysqlService;

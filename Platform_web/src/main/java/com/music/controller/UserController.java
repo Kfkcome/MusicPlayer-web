@@ -15,7 +15,7 @@ import java.util.UUID;
 import static com.music.utils.JwtUtil.createJWT;
 
 @RestController
-//@RequestMapping("/")
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     UserService userService;
