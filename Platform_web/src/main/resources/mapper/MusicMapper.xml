@@ -7,4 +7,7 @@
     <select id="SelectAllType" resultType="com.music.domain.Song">
         select Distinct type from song;
     </select>
+    <select id="SelectSongsByType" resultType="com.music.domain.Song">
+        select * from song where type=#{type}
+    </select>
 </mapper>

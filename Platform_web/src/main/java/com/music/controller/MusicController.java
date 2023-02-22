@@ -49,4 +49,8 @@ public class MusicController {
     {
         return new ResponseResult<>(200,"传输歌曲类型成功",musicService.FindAllType());
     }
+    @RequestMapping("/type/songs")
+    public ResponseResult<List> FindSonsByType(@RequestBody String type){
+        return new ResponseResult<>(200,"传输成功",musicService.FindSongsByType(type));
+    }
 }

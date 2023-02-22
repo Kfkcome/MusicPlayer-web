@@ -10,4 +10,6 @@ public interface MusicService {
     Song FindOneMusic(Integer id);//根据歌曲id查询歌曲信息
 
     List<String> FindAllType();
+
+    List<Song> FindSongsByType(String type);
 }

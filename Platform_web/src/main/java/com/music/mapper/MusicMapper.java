@@ -12,4 +12,6 @@ public interface MusicMapper {
     List<Song> SelectAllByID(Integer id);
 
     List<Song> SelectAllType();
+
+    List<Song> SelectSongsByType(String type);
 }

@@ -48,4 +48,9 @@ public class MusicServiceImpl implements MusicService {
         }
         return strings;
     }
+
+    @Override
+    public List<Song> FindSongsByType(String type) {
+        return musicMapper.SelectSongsByType(type);
+    }
 }
