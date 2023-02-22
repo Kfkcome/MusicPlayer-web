@@ -22,7 +22,8 @@ public class MusicController {
     public ResponseResult<List> FindMusic() throws NoSuchAlgorithmException {//歌曲推动功能，一次推动随机推送10首歌
         return new ResponseResult<>(200,"传输歌曲成功",musicService.RandomFind());
     }
-    @PostMapping ("/load")
+
+    @RequestMapping  ("/load")
     public void SongFileLoad(HttpServletResponse response,@RequestBody Song song)throws IOException
     {
         File music=new File(musicService.FindOneMusic(song.getMusicID()).getAddress());
@@ -48,6 +49,11 @@ public class MusicController {
     public ResponseResult<List> FindType()
     {
         return new ResponseResult<>(200,"传输歌曲类型成功",musicService.FindAllType());
+    }
+    @RequestMapping("/select")
+    public ResponseResult<Song> findByID(@RequestBody Song song)
+    {
+        return new ResponseResult<>(200,"传输歌曲类型成功",musicService.FindOneMusic(song.getMusicID()));
     }
     @RequestMapping("/type/songs")
     public ResponseResult<List> FindSonsByType(@RequestBody String type){//前端传入是直接传字符串不用json
