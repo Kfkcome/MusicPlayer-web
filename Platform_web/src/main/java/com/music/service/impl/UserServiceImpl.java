@@ -22,19 +22,12 @@ public class UserServiceImpl implements UserService {
     public String login(User user) {
 
         User user1=userMapper.selectByID(user.getUid(),user.getPassword());
-        Map<String, Object> map;
-        String token=new String();
+        String token=null;
         if (user1 != null) {
             //如果正确 生成token返回
-            System.out.println(user1.toString());
-            map = new HashMap<>();
             token = createJWT(UUID.randomUUID().toString(), String.valueOf(user1.getId()), null);
             System.out.println(token);
-            map.put("token", token);
-        } else {
-            //如果不正确 给出相应的提示
-            return null;
         }
-        return token;
+        return  token;
     }
 }
