@@ -14,4 +14,6 @@ public interface MusicService {
     List<Song> FindSongsByType(String type);
 
     List<String> FindAllSingers();
+
+    List<Song> FindSongsBySinger(String singer);
 }

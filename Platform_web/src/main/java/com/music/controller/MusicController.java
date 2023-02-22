@@ -58,4 +58,9 @@ public class MusicController {
     {
         return new ResponseResult<>(200,"传输成功",musicService.FindAllSingers());
     }
+    @RequestMapping("/singer/song")
+    public ResponseResult<List> FindSongsBySinger(@RequestBody String singer)//前端仅传输歌手的名字字符串即可不用json
+    {
+        return new ResponseResult<>(200,"传输成功",musicService.FindSongsBySinger(singer));
+    }
 }

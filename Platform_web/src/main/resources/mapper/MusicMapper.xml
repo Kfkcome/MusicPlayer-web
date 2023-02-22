@@ -13,4 +13,7 @@
     <select id="SelectALlSingers" resultType="com.music.domain.Song">
         select DISTINCT singer from song;
     </select>
+    <select id="SelectSongsBySinger" resultType="com.music.domain.Song">
+        select * from song where singer=#{singer};
+    </select>
 </mapper>
