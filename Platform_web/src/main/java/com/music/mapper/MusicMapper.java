@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface MusicMapper {
     List<Song> SelectAllByID(Integer id);
+
+    List<Song> SelectAllType();
 }

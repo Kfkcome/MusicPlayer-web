@@ -44,4 +44,9 @@ public class MusicController {
         ips.close();
         ops.close();
     }
+    @RequestMapping("/type")
+    public ResponseResult<List> FindType()
+    {
+        return new ResponseResult<>(200,"传输歌曲类型成功",musicService.FindAllType());
+    }
 }

@@ -4,4 +4,7 @@
     <select id="SelectAllByID" resultType="com.music.domain.Song">
         select * from song where MusicID=#{id};
     </select>
+    <select id="SelectAllType" resultType="com.music.domain.Song">
+        select Distinct type from song;
+    </select>
 </mapper>
