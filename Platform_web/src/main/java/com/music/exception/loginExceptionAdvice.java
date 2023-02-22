@@ -18,11 +18,4 @@ public class loginExceptionAdvice {
         //把ResponseResult作为返回值返回，要求到时候转换成json存入响应体中
         return result;
     }
-    @ExceptionHandler(ExpiredJwtException.class)
-    @ResponseBody
-    public ResponseResult handlerJwtException(Exception e){
-        String message=e.getMessage();
-        ResponseResult result=new ResponseResult(401,message);
-        return result;
-    }
 }
