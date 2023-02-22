@@ -1,6 +1,7 @@
 package com.music.exception;
 
 import com.music.domain.ResponseResult;
+import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -15,6 +16,13 @@ public class loginExceptionAdvice {
         String message = e.getMessage();
         ResponseResult result = new ResponseResult(401,message);
         //把ResponseResult作为返回值返回，要求到时候转换成json存入响应体中
+        return result;
+    }
+    @ExceptionHandler(ExpiredJwtException.class)
+    @ResponseBody
+    public ResponseResult handlerJwtException(Exception e){
+        String message=e.getMessage();
+        ResponseResult result=new ResponseResult(401,message);
         return result;
     }
 }

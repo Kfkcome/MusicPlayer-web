@@ -29,5 +29,4 @@ public class MusicExceptionAdvice {
     public ResponseResult handlerIndexOutOfBound(){
         return new ResponseResult(401,"搜索不到请重新尝试");
     }
-
 }

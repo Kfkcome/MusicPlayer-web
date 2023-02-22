@@ -57,4 +57,13 @@ public class UserController {
         }
         return new ResponseResult(401,"修改失败");
     }
+    @RequestMapping("/playlist")
+    public ResponseResult findPlaylist(HttpServletRequest request)
+    {
+        String token=request.getHeader("token");
+        Claims claims=JwtUtil.parseJWT(token);
+        String id=claims.getSubject();
+        return new ResponseResult(200,"传输成功",userService.findPlaylist(Integer.valueOf(id)));
+
+    }
 }

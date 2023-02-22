@@ -10,4 +10,7 @@
     <select id="selectInfoByID" resultType="com.music.domain.UserInfo">
         select * from userinfo where id=#{id};
     </select>
+    <select id="selectPlaylist" resultType="com.music.domain.Playlist">
+        select * from playlistinfo where id=#{id};
+    </select>
 </mapper>

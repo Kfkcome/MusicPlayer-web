@@ -1,5 +1,6 @@
 package com.music.service.impl;
 
+import com.music.domain.Playlist;
 import com.music.domain.ResponseResult;
 import com.music.domain.User;
 import com.music.domain.UserInfo;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -44,5 +46,11 @@ public class UserServiceImpl implements UserService {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public List<Playlist> findPlaylist(Integer id) {
+        List<Playlist> p=userMapper.selectPlaylist(id);
+       return userMapper.selectPlaylist(id);
     }
 }
