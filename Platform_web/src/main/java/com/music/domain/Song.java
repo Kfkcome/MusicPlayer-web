@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Song {
-    private Integer MusicID;//歌曲ID
+    private Integer musicID;//歌曲ID
     private String name;//名字
     private String singer;//歌手
     private String type;//歌曲类型
