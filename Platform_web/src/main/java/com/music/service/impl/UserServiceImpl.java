@@ -36,4 +36,13 @@ public class UserServiceImpl implements UserService {
     public UserInfo findUserInfoById(Integer id) {
         return userMapper.selectInfoByID(id);
     }
+
+    @Override
+    public boolean updateUserInfoById(Integer id,UserInfo userInfo) {
+        int x=userMapper.updateUserInfoById(id,userInfo);
+        if(x!=1){
+            return false;
+        }
+        return true;
+    }
 }

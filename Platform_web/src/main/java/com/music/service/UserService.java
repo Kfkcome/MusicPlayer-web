@@ -7,4 +7,6 @@ public interface UserService {
     String login(User user);
 
     UserInfo findUserInfoById(Integer id);
+
+    boolean updateUserInfoById(Integer id,UserInfo userInfo);
 }

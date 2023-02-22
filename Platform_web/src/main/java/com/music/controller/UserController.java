@@ -2,6 +2,7 @@ package com.music.controller;
 
 import com.music.domain.ResponseResult;
 import com.music.domain.User;
+import com.music.domain.UserInfo;
 import com.music.exception.loginErrorException;
 import com.music.service.UserService;
 import com.music.utils.JwtUtil;
@@ -9,6 +10,7 @@ import io.jsonwebtoken.Claims;
 import org.apache.el.parser.Token;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,5 +44,17 @@ public class UserController {
         Claims claims=JwtUtil.parseJWT(token);
         String id=claims.getSubject();
         return new ResponseResult(200,"传输成功",userService.findUserInfoById(Integer.valueOf(id)));
+    }
+    @RequestMapping("/info/update")
+    public ResponseResult updateUserInfoById(HttpServletRequest request, @RequestBody UserInfo userInfo)
+    {
+        String token=request.getHeader("token");
+        Claims claims=JwtUtil.parseJWT(token);
+        String id=claims.getSubject();
+        if(userService.updateUserInfoById(Integer.valueOf(id),userInfo))
+        {
+            return new ResponseResult(200,"修改成功");
+        }
+        return new ResponseResult(401,"修改失败");
     }
 }
