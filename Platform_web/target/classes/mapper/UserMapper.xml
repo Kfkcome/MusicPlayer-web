@@ -4,4 +4,7 @@
     <select id="selectByID" resultType="com.music.domain.User">
         select * from userAccount where uid=#{uid} and password=#{password} ;
     </select>
+    <select id="selectInfoByID" resultType="com.music.domain.UserInfo">
+        select * from userinfo where id=#{id};
+    </select>
 </mapper>

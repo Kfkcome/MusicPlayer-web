@@ -1,9 +1,7 @@
 package com.music.utils;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import com.music.exception.loginErrorException;
+import io.jsonwebtoken.*;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -67,7 +65,7 @@ public class JwtUtil {
      * @return
      * @throws Exception
      */
-    public static Claims parseJWT(String jwt) throws Exception {
+    public static Claims parseJWT(String jwt) throws SignatureException {
         SecretKey secretKey = generalKey();
         return Jwts.parser()
                 .setSigningKey(secretKey)

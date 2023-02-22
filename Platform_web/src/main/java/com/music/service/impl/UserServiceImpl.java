@@ -2,6 +2,7 @@ package com.music.service.impl;
 
 import com.music.domain.ResponseResult;
 import com.music.domain.User;
+import com.music.domain.UserInfo;
 import com.music.mapper.UserMapper;
 import com.music.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,10 @@ public class UserServiceImpl implements UserService {
             System.out.println(token);
         }
         return  token;
+    }
+
+    @Override
+    public UserInfo findUserInfoById(Integer id) {
+        return userMapper.selectInfoByID(id);
     }
 }
