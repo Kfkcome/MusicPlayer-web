@@ -53,4 +53,15 @@ public class MusicServiceImpl implements MusicService {
     public List<Song> FindSongsByType(String type) {
         return musicMapper.SelectSongsByType(type);
     }
+
+    @Override
+    public List<String> FindAllSingers() {
+        List<String> strings=new ArrayList<>();
+        List<Song> songs=musicMapper.SelectALlSingers();
+        for(int i=0;i<songs.size();i++)
+        {
+            if(songs.get(i)!=null) strings.add(songs.get(i).getSinger());
+        }
+        return  strings;
+    }
 }

@@ -8,6 +8,9 @@
         select Distinct type from song;
     </select>
     <select id="SelectSongsByType" resultType="com.music.domain.Song">
-        select * from song where type=#{type}
+        select * from song where type=#{type};
+    </select>
+    <select id="SelectALlSingers" resultType="com.music.domain.Song">
+        select DISTINCT singer from song;
     </select>
 </mapper>

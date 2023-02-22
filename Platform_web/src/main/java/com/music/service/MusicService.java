@@ -12,4 +12,6 @@ public interface MusicService {
     List<String> FindAllType();
 
     List<Song> FindSongsByType(String type);
+
+    List<String> FindAllSingers();
 }
