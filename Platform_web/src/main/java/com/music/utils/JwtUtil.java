@@ -65,7 +65,7 @@ public class JwtUtil {
      * @return
      * @throws Exception
      */
-    public static Claims parseJWT(String jwt) throws SignatureException {
+    public static Claims parseJWT(String jwt) throws loginErrorException {
         SecretKey secretKey = generalKey();
         return Jwts.parser()
                 .setSigningKey(secretKey)

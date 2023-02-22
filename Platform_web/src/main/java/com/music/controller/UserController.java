@@ -1,5 +1,6 @@
 package com.music.controller;
 
+import com.music.domain.Playlist;
 import com.music.domain.ResponseResult;
 import com.music.domain.User;
 import com.music.domain.UserInfo;
@@ -64,6 +65,13 @@ public class UserController {
         Claims claims=JwtUtil.parseJWT(token);
         String id=claims.getSubject();
         return new ResponseResult(200,"传输成功",userService.findPlaylist(Integer.valueOf(id)));
-
+    }
+    @RequestMapping("/playlist/add")
+    public ResponseResult addPlaylist(HttpServletRequest request,@RequestBody Playlist playlist)
+    {
+        String token=request.getHeader("token");
+        Claims claims=JwtUtil.parseJWT(token);
+        String id=claims.getSubject();
+        return new ResponseResult(200,"增加成功",userService.addPlaylist(Integer.valueOf(id),playlist));
     }
 }

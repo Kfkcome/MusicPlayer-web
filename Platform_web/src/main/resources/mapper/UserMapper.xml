@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.music.mapper.UserMapper">
+    <insert id="insertPlaylist">
+        insert into playlistinfo values (#{playlist.playlistid},#{playlist.name},#{id})
+    </insert>
     <update id="updateUserInfoById">
         update userinfo set name=#{userInfo.name},gender=#{userInfo.gender},love=#{userInfo.love} where id=#{id};
     </update>

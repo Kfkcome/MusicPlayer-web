@@ -16,4 +16,5 @@ public interface UserMapper {
     UserInfo selectInfoByID(Integer id);
     int updateUserInfoById(Integer id,UserInfo userInfo);
     List<Playlist> selectPlaylist(Integer id);
+    int insertPlaylist(Integer id,Playlist playlist);
 }

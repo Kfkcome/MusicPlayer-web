@@ -13,4 +13,5 @@ public interface UserService {
 
     boolean updateUserInfoById(Integer id,UserInfo userInfo);
     List<Playlist> findPlaylist(Integer id);
+    int addPlaylist(Integer id,Playlist playlist);
 }
