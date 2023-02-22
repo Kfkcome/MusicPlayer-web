@@ -33,4 +33,9 @@ public class MvServiceImpl implements MvService {
         }
         return res;
     }
+
+    @Override
+    public Mv findMvByID(Integer id) {
+        return mvMapper.selectMvById(id).get(0);
+    }
 }

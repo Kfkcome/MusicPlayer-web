@@ -12,17 +12,22 @@ import java.security.NoSuchAlgorithmException;
 public class MusicExceptionAdvice {
     @ExceptionHandler(NoSuchAlgorithmException.class)
     @ResponseBody
-    public ResponseResult handlerException(Exception e)
-    {
-        String mes=e.getMessage();
-        return new ResponseResult<>(401,mes);
+    public ResponseResult handlerException(Exception e) {
+        String mes = e.getMessage();
+        return new ResponseResult<>(401, mes);
     }
+
     @ExceptionHandler(FileNotFoundException.class)
     @ResponseBody
-    public ResponseResult handlerNotfound(Exception e)
-    {
-        String mes=e.getMessage();
-        return new ResponseResult(401,mes);
+    public ResponseResult handlerNotfound(Exception e) {
+        String mes = e.getMessage();
+        return new ResponseResult(401, mes);
+    }
+
+    @ExceptionHandler(IndexOutOfBoundsException.class)
+    @ResponseBody
+    public ResponseResult handlerIndexOutOfBound(){
+        return new ResponseResult(401,"搜索不到请重新尝试");
     }
 
 }

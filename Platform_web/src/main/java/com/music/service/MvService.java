@@ -8,4 +8,5 @@ import java.util.List;
 public interface MvService {
 
     List<Mv> findRandomMv() throws NoSuchAlgorithmException;
+    Mv findMvByID(Integer id);
 }
