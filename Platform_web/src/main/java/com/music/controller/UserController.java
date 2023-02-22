@@ -23,20 +23,14 @@ public class UserController {
     @CrossOrigin
     public ResponseResult login(@RequestBody User user)
     {
+        String token=userService.login(user);
         //校验用户名密码是否正确
-        User loginUser = userService.login(user);
-        Map<String, Object> map;
-        if (loginUser != null) {
-            //如果正确 生成token返回
-            System.out.println(loginUser.toString());
-            map = new HashMap<>();
-            String token = createJWT(UUID.randomUUID().toString(), String.valueOf(loginUser.getId()), null);
-            System.out.println(token);
-            map.put("token", token);
+        if (token!=null) {
+            return new ResponseResult(200, "登录成功", token);
         } else {
             //如果不正确 给出相应的提示
             return new ResponseResult(300, "用户名或密码错误，请重新登录");
         }
-        return new ResponseResult(200, "登录成功", map);
+
     }
 }
