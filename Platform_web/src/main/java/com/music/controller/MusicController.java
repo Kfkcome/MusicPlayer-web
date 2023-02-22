@@ -19,7 +19,7 @@ public class MusicController {
     @Autowired
     private MusicService musicService;
     @RequestMapping("/Random")
-    public ResponseResult<List> FindMusic() throws NoSuchAlgorithmException {
+    public ResponseResult<List> FindMusic() throws NoSuchAlgorithmException {//歌曲推动功能，一次推动随机推送10首歌
         return new ResponseResult<>(200,"传输歌曲成功",musicService.RandomFind());
     }
     @PostMapping ("/load")
@@ -44,5 +44,4 @@ public class MusicController {
         ips.close();
         ops.close();
     }
-
 }

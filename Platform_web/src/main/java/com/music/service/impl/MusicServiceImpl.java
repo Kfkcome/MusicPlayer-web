@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 @Service
 public class MusicServiceImpl implements MusicService {
     @Autowired
@@ -18,13 +18,18 @@ public class MusicServiceImpl implements MusicService {
     public List<Song> RandomFind() throws NoSuchAlgorithmException{
 
         List<Song> res=new ArrayList<>();
-       // 创建 SecureRandom 对象，并设置加密算法
+        //防止随机数重复
+        Set set=new HashSet();
+        // 创建 SecureRandom 对象，并设置加密算法
         SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
-        for (int i = 0; i < 10; i++) {
+        do{
             // 生成 0-9 随机整数
-            int number = random.nextInt(10);
-            // 打印结果
-            res.add(musicMapper.SelectAllByID(number).get(0));
+            set.add(random.nextInt(10));
+        }while(set.size()<9);
+        Iterator<Integer> it = set.iterator();
+        while(it.hasNext()){
+            // 生成结果
+            res.add(musicMapper.SelectAllByID(it.next()).get(0));
         }
         return res;
     }
