@@ -16,4 +16,5 @@ public interface UserService {
     int addPlaylist(Integer id, Playlist playlist);
 
     int addPlaylistSong(PlaylistSong playlistSong);
+    int deletePlaylistSong(PlaylistSong playlistSong);
 }

@@ -76,5 +76,10 @@ public class UserController {
     {
         return new ResponseResult(200,"添加成功",userService.addPlaylistSong(playlistSong));
     }
+    @RequestMapping("/playlist/delete")
+    public ResponseResult deleteSongInPlaylist(@RequestBody PlaylistSong playlistSong)
+    {
+        return new ResponseResult(200,"删除成功",userService.deletePlaylistSong(playlistSong));
+    }
 
 }

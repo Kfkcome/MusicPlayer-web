@@ -70,4 +70,9 @@ public class UserServiceImpl implements UserService {
     public int addPlaylistSong(PlaylistSong playlistSong) {
         return userMapper.insertSongToPlaylist(playlistSong);
     }
+
+    @Override
+    public int deletePlaylistSong(PlaylistSong playlistSong) {
+       return  userMapper.deleteSongInPlaylist(playlistSong);
+    }
 }

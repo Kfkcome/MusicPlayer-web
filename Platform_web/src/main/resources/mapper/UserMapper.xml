@@ -10,6 +10,9 @@
     <update id="updateUserInfoById">
         update userinfo set name=#{userInfo.name},gender=#{userInfo.gender},love=#{userInfo.love} where id=#{id};
     </update>
+    <delete id="deleteSongInPlaylist">
+        delete from playlist where playlistid=#{playlistid} and musicID=#{musicID};
+    </delete>
     <select id="selectByID" resultType="com.music.domain.User">
         select * from userAccount where uid=#{uid} and password=#{password} ;
     </select>
