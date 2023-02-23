@@ -1,6 +1,8 @@
 package com.music.service.impl;
 
+import com.music.domain.Playlist;
 import com.music.domain.Song;
+import com.music.mapper.MusicMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,6 +16,8 @@ import java.util.List;
 public class MusicServiceImplTest {
     @Autowired
     MusicServiceImpl musicService;
+    @Autowired
+    MusicMapper musicMapper;
     @Test
     public void testRandomMusic() throws NoSuchAlgorithmException {
         List<Song> res=musicService.RandomFind();
@@ -48,8 +52,10 @@ public class MusicServiceImplTest {
         // 关闭流
         ips.close();
         ops.close();
-
-
-
+    }
+    @Test
+    public void TestSongInPlaylist()
+    {
+        System.out.println(musicMapper.SelectSongsInPlaylist(new Playlist(1,"123")));
     }
 }

@@ -1,5 +1,6 @@
 package com.music.controller;
 
+import com.music.domain.Playlist;
 import com.music.domain.ResponseResult;
 import com.music.domain.Song;
 import com.music.service.MusicService;
@@ -68,5 +69,10 @@ public class MusicController {
     public ResponseResult<List> FindSongsBySinger(@RequestBody String singer)//前端仅传输歌手的名字字符串即可不用json
     {
         return new ResponseResult<>(200,"传输成功",musicService.FindSongsBySinger(singer));
+    }
+    @RequestMapping("/playlist/song")
+    public ResponseResult<List> FindSongsInPlaylist(@RequestBody Playlist playlist)
+    {
+        return new ResponseResult<>(200,"传输成功",musicService.FindSongsInpPlaylist(playlist));
     }
 }

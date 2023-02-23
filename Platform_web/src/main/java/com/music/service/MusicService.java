@@ -1,5 +1,7 @@
 package com.music.service;
 
+import com.music.domain.Playlist;
+import com.music.domain.PlaylistSong;
 import com.music.domain.Song;
 
 import java.security.NoSuchAlgorithmException;
@@ -16,4 +18,5 @@ public interface MusicService {
     List<String> FindAllSingers();
 
     List<Song> FindSongsBySinger(String singer);
+    List<PlaylistSong> FindSongsInpPlaylist(Playlist playlist);
 }

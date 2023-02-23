@@ -16,4 +16,7 @@
     <select id="SelectSongsBySinger" resultType="com.music.domain.Song">
         select * from song where singer=#{singer};
     </select>
+    <select id="SelectSongsInPlaylist" resultType="com.music.domain.PlaylistSong">
+        select * from playlist where playlistid=#{playlistid};
+    </select>
 </mapper>

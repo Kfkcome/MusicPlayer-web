@@ -1,5 +1,7 @@
 package com.music.service.impl;
 
+import com.music.domain.Playlist;
+import com.music.domain.PlaylistSong;
 import com.music.domain.Song;
 import com.music.mapper.MusicMapper;
 import com.music.service.MusicService;
@@ -68,6 +70,11 @@ public class MusicServiceImpl implements MusicService {
     @Override
     public List<Song> FindSongsBySinger(String singer) {
         return musicMapper.SelectSongsBySinger(singer);
+    }
+
+    @Override
+    public List<PlaylistSong> FindSongsInpPlaylist(Playlist playlist) {
+        return musicMapper.SelectSongsInPlaylist(playlist);
     }
 
 }

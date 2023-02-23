@@ -1,5 +1,7 @@
 package com.music.mapper;
 
+import com.music.domain.Playlist;
+import com.music.domain.PlaylistSong;
 import com.music.domain.Song;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -18,4 +20,5 @@ public interface MusicMapper {
     List<Song> SelectALlSingers();
 
     List<Song> SelectSongsBySinger(String singer);
+    List<PlaylistSong> SelectSongsInPlaylist(Playlist playlist);
 }

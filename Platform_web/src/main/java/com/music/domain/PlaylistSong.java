@@ -11,4 +11,5 @@ public class PlaylistSong {
     private Integer playlistid;
     private Integer musicID;
     private String musicname;
+
 }
