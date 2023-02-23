@@ -1,8 +1,6 @@
 package com.music.mapper;
 
-import com.music.domain.Playlist;
-import com.music.domain.User;
-import com.music.domain.UserInfo;
+import com.music.domain.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -17,4 +15,5 @@ public interface UserMapper {
     int updateUserInfoById(Integer id,UserInfo userInfo);
     List<Playlist> selectPlaylist(Integer id);
     int insertPlaylist(Integer id,Playlist playlist);
+    int insertSongToPlaylist(PlaylistSong playlistSong);
 }

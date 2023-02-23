@@ -1,9 +1,6 @@
 package com.music.controller;
 
-import com.music.domain.Playlist;
-import com.music.domain.ResponseResult;
-import com.music.domain.User;
-import com.music.domain.UserInfo;
+import com.music.domain.*;
 import com.music.exception.loginErrorException;
 import com.music.service.UserService;
 import com.music.utils.JwtUtil;
@@ -66,7 +63,7 @@ public class UserController {
         String id=claims.getSubject();
         return new ResponseResult(200,"传输成功",userService.findPlaylist(Integer.valueOf(id)));
     }
-    @RequestMapping("/playlist/add")
+    @RequestMapping("/addplaylist")
     public ResponseResult addPlaylist(HttpServletRequest request,@RequestBody Playlist playlist)
     {
         String token=request.getHeader("token");
@@ -74,4 +71,10 @@ public class UserController {
         String id=claims.getSubject();
         return new ResponseResult(200,"增加成功",userService.addPlaylist(Integer.valueOf(id),playlist));
     }
+    @RequestMapping("/playlist/add")
+    public ResponseResult addSongToPlaylist(@RequestBody PlaylistSong playlistSong)
+    {
+        return new ResponseResult(200,"添加成功",userService.addPlaylistSong(playlistSong));
+    }
+
 }

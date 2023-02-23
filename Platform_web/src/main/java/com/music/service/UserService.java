@@ -1,8 +1,6 @@
 package com.music.service;
 
-import com.music.domain.Playlist;
-import com.music.domain.User;
-import com.music.domain.UserInfo;
+import com.music.domain.*;
 
 import java.util.List;
 
@@ -11,7 +9,11 @@ public interface UserService {
 
     UserInfo findUserInfoById(Integer id);
 
-    boolean updateUserInfoById(Integer id,UserInfo userInfo);
+    boolean updateUserInfoById(Integer id, UserInfo userInfo);
+
     List<Playlist> findPlaylist(Integer id);
-    int addPlaylist(Integer id,Playlist playlist);
+
+    int addPlaylist(Integer id, Playlist playlist);
+
+    int addPlaylistSong(PlaylistSong playlistSong);
 }
