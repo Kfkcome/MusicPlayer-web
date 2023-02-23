@@ -53,16 +53,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int addPlaylist(Integer id,Playlist playlist) {
-        List<Playlist> playlists=userMapper.selectPlaylist(id);
-        int playlistid=0;
-        for(int i=0;i<playlists.size();i++)
-        {
-            if(playlistid<playlists.get(i).getPlaylistid()){
-                playlistid=playlists.get(i).getPlaylistid();
-            }
-        }
-        playlistid+=1;
-        playlist.setPlaylistid(playlistid);
         return userMapper.insertPlaylist(id,playlist);
     }
 
@@ -74,5 +64,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public int deletePlaylistSong(PlaylistSong playlistSong) {
        return  userMapper.deleteSongInPlaylist(playlistSong);
+    }
+
+    @Override
+    public int deletePlaylist(Playlist playlist) {
+        return userMapper.deleteAllSongInPlaylist(playlist)+userMapper.deletePlaylist(playlist);
     }
 }

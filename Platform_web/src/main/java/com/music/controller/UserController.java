@@ -71,6 +71,11 @@ public class UserController {
         String id=claims.getSubject();
         return new ResponseResult(200,"增加成功",userService.addPlaylist(Integer.valueOf(id),playlist));
     }
+    @RequestMapping("/deleteplaylist")
+    public ResponseResult deletePlaylist(@RequestBody Playlist playlist)
+    {
+        return new ResponseResult(200,"删除成功",userService.deletePlaylist(playlist));
+    }
     @RequestMapping("/playlist/add")
     public ResponseResult addSongToPlaylist(@RequestBody PlaylistSong playlistSong)
     {

@@ -17,4 +17,6 @@ public interface UserMapper {
     int insertPlaylist(Integer id,Playlist playlist);
     int insertSongToPlaylist(PlaylistSong playlistSong);
     int deleteSongInPlaylist(PlaylistSong playlistSong);
+    int deletePlaylist(Playlist playlist);
+    int deleteAllSongInPlaylist(Playlist playlist);
 }

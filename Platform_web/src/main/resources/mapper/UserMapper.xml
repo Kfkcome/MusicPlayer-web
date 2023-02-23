@@ -13,6 +13,12 @@
     <delete id="deleteSongInPlaylist">
         delete from playlist where playlistid=#{playlistid} and musicID=#{musicID};
     </delete>
+    <delete id="deletePlaylist">
+        delete from playlistinfo where playlistid=#{playlistid};
+    </delete>
+    <delete id="deleteAllSongInPlaylist">
+        delete from playlist where playlistid=#{playlistid};
+    </delete>
     <select id="selectByID" resultType="com.music.domain.User">
         select * from userAccount where uid=#{uid} and password=#{password} ;
     </select>
